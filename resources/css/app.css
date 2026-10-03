@@ -1,0 +1,341 @@
+@import "tailwindcss" source(none);
+
+@custom-variant dark (&:where([data-theme="koni-prestasi"], [data-theme="koni-prestasi"] *));
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+@plugin "daisyui";
+
+@theme {
+    --font-sans: 'Barlow', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Barlow Condensed', sans-serif;
+
+    /* Custom dark palette — digunakan oleh Physical Assessment camera components */
+    --color-dark-800: #1e293b;
+    --color-dark-900: #0f172a;
+    --color-dark-950: #020617;
+}
+
+@plugin "daisyui/theme" {
+    name: "koni-prestasi";
+    default: true;
+    --color-primary: #e63946;
+    /* Active Crimson Red */
+    --color-primary-content: #ffffff;
+    /* White text on primary */
+    --color-secondary: #3b82f6;
+    /* Active Cobalt Blue */
+    --color-secondary-content: #ffffff;
+    /* White text on secondary */
+    --color-accent: #fbbf24;
+    /* Medal Gold */
+    --color-accent-content: #071527;
+    /* Dark navy text on gold */
+    --color-neutral: #0f172a;
+    /* Slate Navy */
+    --color-neutral-content: #f8fafc;
+    /* Light text on neutral */
+    --color-base-100: #0d2545;
+    /* Brand Navy Cards */
+    --color-base-200: #071527;
+    /* Deep Dongker Page BG */
+    --color-base-300: #1b3a60;
+    /* Divider Navy */
+    --color-base-content: #f8fafc;
+    /* Ice White text */
+    --color-info: #3b82f6;
+    --color-info-content: #ffffff;
+    --color-success: #10b981;
+    --color-success-content: #ffffff;
+    --color-warning: #f59e0b;
+    --color-warning-content: #ffffff;
+    --color-error: #ef4444;
+    --color-error-content: #ffffff;
+
+    --radius-box: 0.75rem;
+    --radius-btn: 0.5rem;
+    --radius-field: 0.5rem;
+}
+
+/* Vue3 Datepicker (https://vue3datepicker.com/) integration */
+.dp__main {
+    font-family: inherit;
+    font-size: 0.75rem;
+}
+
+.dp__input {
+    border: 1px solid var(--color-base-300, #cbd5e1) !important;
+    border-radius: var(--radius-field, 0.5rem) !important;
+    background-color: var(--color-base-100, #ffffff) !important;
+    color: var(--color-base-content, #0f172a) !important;
+    font-size: 0.75rem !important;
+    padding: 0.375rem 0.75rem 0.375rem 2.25rem !important;
+    height: 2rem !important;
+}
+
+.dp__input:focus {
+    border-color: var(--color-primary, #2563eb) !important;
+    outline: none !important;
+}
+
+.dp__menu {
+    border: 1px solid var(--color-base-300, #cbd5e1) !important;
+    border-radius: var(--radius-box, 0.75rem) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    font-size: 0.75rem !important;
+}
+
+/* Select2 theme integration */
+.select2-container--default .select2-selection--single {
+    height: 2.5rem !important;
+    border: 1px solid var(--color-base-300, #cbd5e1) !important;
+    border-radius: var(--radius-field, 0.5rem) !important;
+    padding: 4px 10px !important;
+    font-size: 0.875rem !important;
+    background-color: var(--color-base-100, #ffffff) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--color-base-content, #0f172a) !important;
+    line-height: 1.75rem !important;
+    padding-left: 0 !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 2.5rem !important;
+    right: 8px !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--single,
+.select2-container--default.select2-container--open .select2-selection--single {
+    border-color: var(--color-primary, #2563eb) !important;
+    outline: none !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid var(--color-base-300, #cbd5e1) !important;
+    border-radius: var(--radius-field, 0.5rem) !important;
+    min-height: 2.5rem !important;
+    font-size: 0.875rem !important;
+    background-color: var(--color-base-100, #ffffff) !important;
+    padding: 3px 6px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.375rem !important;
+    padding: 2px 8px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    color: #0b2545 !important;
+}
+
+.select2-dropdown {
+    border: 1px solid var(--color-base-300, #cbd5e1) !important;
+    border-radius: var(--radius-field, 0.5rem) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+    background-color: var(--color-base-100, #ffffff) !important;
+}
+
+.select2-results__option {
+    font-size: 0.875rem !important;
+    padding: 8px 12px !important;
+}
+
+.select2-results__option--highlighted[aria-selected] {
+    background-color: var(--color-primary, #2563eb) !important;
+    color: #ffffff !important;
+}
+
+.select2-container {
+    width: 100% !important;
+}
+
+/* Custom Sporty Utility Styles */
+.card {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -6px rgba(11, 37, 69, 0.12) !important;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-base-200, #f4f6fa);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-base-300, #d6dce9);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary, #0B2545);
+}
+
+/* Global Sporty Jersey-Mesh Background Texture */
+body,
+.drawer,
+.min-h-screen.bg-base-200 {
+    background-color: var(--color-base-200, #071527) !important;
+    background-image:
+        radial-gradient(rgba(248, 250, 252, 0.04) 1.5px, transparent 1.5px),
+        radial-gradient(rgba(248, 250, 252, 0.04) 1.5px, transparent 1.5px),
+        linear-gradient(135deg, rgba(248, 250, 252, 0.01) 0%, rgba(230, 57, 70, 0.01) 100%) !important;
+    background-size: 20px 20px, 20px 20px, 100% 100% !important;
+    background-position: 0 0, 10px 10px, 0 0 !important;
+    background-attachment: fixed !important;
+}
+
+/* Override tailwind light colors with bright equivalents in dark mode to fix low contrast text */
+[data-theme="koni-prestasi"] {
+    --color-slate-400: #cbd5e1;
+    --color-slate-500: #cbd5e1;
+    --color-slate-600: #e2e8f0;
+    --color-slate-700: #f1f5f9;
+    --color-slate-800: #f8fafc;
+    --color-slate-900: #ffffff;
+
+    --color-gray-400: #d1d5db;
+    --color-gray-500: #d1d5db;
+    --color-gray-600: #e5e7eb;
+    --color-gray-700: #f3f4f6;
+    --color-gray-800: #f9fafb;
+    --color-gray-900: #ffffff;
+
+    --color-zinc-400: #d4d4d8;
+    --color-zinc-500: #d4d4d8;
+    --color-zinc-600: #e4e4e7;
+    --color-zinc-700: #f4f4f5;
+    --color-zinc-800: #fafafa;
+    --color-zinc-900: #ffffff;
+
+    --color-neutral-400: #a3a3a3;
+    --color-neutral-500: #a3a3a3;
+    --color-neutral-600: #d4d4d4;
+    --color-neutral-700: #e5e5e5;
+    --color-neutral-800: #f5f5f5;
+    --color-neutral-900: #ffffff;
+}
+
+[data-theme="koni-prestasi"] label,
+[data-theme="koni-prestasi"] .label,
+[data-theme="koni-prestasi"] .label-text {
+    color: var(--color-base-content) !important;
+}
+
+/* Force high-contrast opacity modifiers for base-content in dark mode */
+[data-theme="koni-prestasi"] .text-base-content\/90 {
+    color: rgba(248, 250, 252, 0.9) !important;
+}
+
+[data-theme="koni-prestasi"] .text-base-content\/80 {
+    color: rgba(248, 250, 252, 0.8) !important;
+}
+
+[data-theme="koni-prestasi"] .text-base-content\/70 {
+    color: rgba(248, 250, 252, 0.7) !important;
+}
+
+[data-theme="koni-prestasi"] .text-base-content\/60 {
+    color: rgba(248, 250, 252, 0.6) !important;
+}
+
+[data-theme="koni-prestasi"] .text-base-content\/50 {
+    color: rgba(248, 250, 252, 0.5) !important;
+}
+
+[data-theme="koni-prestasi"] .text-base-content\/40 {
+    color: rgba(248, 250, 252, 0.4) !important;
+}
+
+/* Global Form Inputs Visibility fixes */
+input[type="text"]::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+input[type="text"]:-moz-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+input[type="text"]:-ms-input-placeholder {
+    color: #ffffff;
+}
+
+input[type="text"]::-ms-input-placeholder {
+    color: #ffffff;
+}
+
+input[type="text"]::placeholder {
+    color: #ffffff;
+}
+
+/* Restore dark colors, labels, and text opacities inside white PDF reports (.rpt / .rpt-page) */
+.rpt, .rpt-page {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  --color-base-content: #1e293b;
+}
+
+/* Force dark-color labels in PDF sheets */
+.rpt label,
+.rpt .label,
+.rpt .label-text,
+.rpt-page label,
+.rpt-page .label,
+.rpt-page .label-text {
+  color: #1e293b !important;
+}
+
+/* Force high-contrast dark text opacity modifiers in PDF sheets */
+.rpt .text-base-content\/90, .rpt-page .text-base-content\/90 { color: rgba(30, 41, 59, 0.9) !important; }
+.rpt .text-base-content\/80, .rpt-page .text-base-content\/80 { color: rgba(30, 41, 59, 0.8) !important; }
+.rpt .text-base-content\/70, .rpt-page .text-base-content\/70 { color: rgba(30, 41, 59, 0.7) !important; }
+.rpt .text-base-content\/60, .rpt-page .text-base-content\/60 { color: rgba(30, 41, 59, 0.6) !important; }
+.rpt .text-base-content\/50, .rpt-page .text-base-content\/50 { color: rgba(30, 41, 59, 0.5) !important; }
+.rpt .text-base-content\/40, .rpt-page .text-base-content\/40 { color: rgba(30, 41, 59, 0.4) !important; }

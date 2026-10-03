@@ -1,0 +1,18 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="skewX(-10) translate(2, 0)">
+    <!-- Performance Bar Chart Blocks -->
+    <rect x="5" y="18" width="4.5" height="8" rx="1.5" fill="#2563eb" opacity="0.30" />
+    <rect x="11.5" y="12" width="4.5" height="14" rx="1.5" fill="#2563eb" opacity="0.65" />
+    <rect x="18" y="5.5" width="4.5" height="20.5" rx="1.5" fill="#2563eb" />
+    
+    <!-- Dynamic Score Swoosh (Athletic Wave / Growth Curve) -->
+    <path d="M 3.5 16.5 C 7.5 24.5 15.5 26 26.5 7.5" stroke="url(#ps-fav-gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 19.5 7.5 H 26.5 V 14.5" stroke="url(#ps-fav-gradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <defs>
+    <linearGradient id="ps-fav-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#db2777" />
+    </linearGradient>
+  </defs>
+</svg>
