@@ -14,29 +14,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->updateOrInsert(
-            ['username' => 'admin'],
+        $users = [
             [
-                'name' => 'Administrator',
-                'email' => 'admin@indexfitlab.com',
-                'role' => UserRole::Admin->value,
-                'password' => Hash::make('password'),
-                'updated_at' => now(),
-                'created_at' => now(),
-            ]
-        );
+                'username' => 'admin',
+                'name'     => 'Administrator',
+                'email'    => 'admin@indexfitlab.com',
+                'role'     => UserRole::Admin->value,
+            ],
+            [
+                'username' => 'officer',
+                'name'     => 'Officer',
+                'email'    => 'officer@indexfitlab.com',
+                'role'     => UserRole::Officer->value,
+            ],
+            [
+                'username' => 'kader1',
+                'name'     => 'Kader 1',
+                'email'    => 'kader1@indexfitlab.com',
+                'role'     => UserRole::Kader->value,
+            ],
+        ];
 
-        DB::table('users')->updateOrInsert(
-            ['username' => 'officer'],
-            [
-                'name' => 'Officer',
-                'email' => 'officer@indexfitlab.com',
-                'role' => UserRole::Officer->value,
-                'password' => Hash::make('password'),
-                'updated_at' => now(),
-                'created_at' => now(),
-            ]
-        );
+        foreach ($users as $user) {
+            DB::table('users')->updateOrInsert(
+                ['username' => $user['username']],
+                array_merge($user, [
+                    'password'   => Hash::make('password'),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ])
+            );
+        }
 
         $this->call([
             SportBranchSeeder::class,
